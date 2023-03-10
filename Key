@@ -1,0 +1,117 @@
+Practical 5 : NaiveBayes
+
+install.packages("e1071")
+install.packages("gmodels")
+install.packages("dplyr")
+
+library(e1071)
+library(gmodels)
+library(dplyr)
+
+data(iris)
+head(iris)	
+str(iris)
+summary(iris)
+
+index=sample(2,nrow(iris),prob=c(0.9,0.1),replace=TRUE)
+set.seed(1234)
+
+train=iris[index==1,]
+test=iris[index==2,]
+test_data=test[1:4]
+test_label=test[,5]
+
+model=naiveBayes(train$Species~.,train)
+model
+
+test_result=predict(model,test_data)
+test_result
+
+CrossTable(x=test_label,y=test_result)
+
+
+
+Practical 6 : Kmeans Clustering
+
+data(iris)
+str(iris)
+install.packages("ClusterR")
+install.packages("cluster")
+library(ClusterR)
+library(cluster)
+
+iris_1 <- iris[,-5]
+set.seed(240)
+kmeans.re<-kmeans(iris_1,centers=3,nstart=20)
+kmeans.re
+kmeans.re$cluster
+cm<-table(iris$Species,kmeans.re$cluster)
+cm
+plot(iris_1[c("Sepal.Length","Sepal.Width")])
+plot(iris_1[c("Sepal.Length","Sepal.Width")],col=kmeans.re$cluster)
+main=("k-means with 3 clusters")
+kmeans.re$centers
+kmeans.re$centers[,c("Sepal.Length","Sepal.Width")]
+points(kmeans.re$centers[,c("Sepal.Length","Sepal.Width")],col=1:3,pch=8,cex=3)
+y_kmeans <- kmeans.re$cluster
+clusplot(iris_1[,c("Sepal.Length","Sepal.Width")],y_kmeans,lines=0,shade=TRUE,color=TRUE,labels=2,plotchar=FALSE,spam=TRUE,main=paste("Clusteriris"),xlab='Sepal.Length',ylab='Sepal.Width')
+kmeans.re
+confusforMatrix(cm)
+cm
+
+caret::confusionMatrix(table(iris$Species,kmeans.re$cluster))
+
+
+Practical 7A : Decision Tree
+
+install.packages("datatools")
+install.packages("datasets")
+install.packages("caTools")
+install.packages("party")
+install.packages("dplyr")
+install.packages("magrittr")
+
+library(datasets)
+library(caTools)
+library(party)
+library(dplyr)
+library(magrittr)
+
+data("readingSkills")
+head(readingSkills)
+
+sample_data = sample.split(readingSkills,SplitRatio=0.8)
+train_data <- subset(readingSkills, sample_data == TRUE)
+test_data <- subset(readingSkills, sample_data == FALSE)
+model <- ctree(nativeSpeaker~.,train_data)
+plot(model)
+ctree_ <- ctree(nativeSpeaker~.,train_data)
+plot(ctree_)
+predict_model <- predict(ctree_,test_data)
+m_at <- table(test_data $nativeSpeaker,predict_model)
+m_at
+
+Practical 7B : Linear Regressin
+
+x <- c(151,174,138,186,128,136,179,163,152,131)
+y <- c(63,81,56,91,47,57,76,72,62,48)
+
+relation <- lm(y~x)
+print(relation)
+print(summary(relation))
+q <- data.frame(x=170)
+result <- predict(relation,q)
+print(result)
+plot(y,x,col="blue",main="Height & Weight", abline(lm(x~y)),cex=1.3,pch=16,xlab="Weight in Kg",ylab="Height in cm")
+
+
+Practical 7C : Time Series
+
+rainfall1 <- c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)
+rainfall2 <- c(655,1306.9,1323.4,1172.2,562.2,824,822.4,1265.5,799.6,1105.6,1106.7,1337.8)
+
+combined.rainfall<-matrix<-matrix(c(rainfall1,rainfall2),nrow=12)
+combined.rainfall
+rainfall.timeseries<-ts(combined.rainfall,start=c(2012,1),frequency=12)
+print(rainfall.timeseries)
+plot(rainfall.timeseries,main="multiple Time Series")
