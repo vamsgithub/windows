@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h2>Vamshi Myakala</h2>
+<p> Contact:<a href="abcd.com">8104951578</a></p>
+<p> Email:<a href="abcd.com">vamshimyakala27@gmail.com</a></p>
+<p> Github:<a href="abcd.com">vams2709</a></p>
+</div>
+<table>
+    <tr>
+        <td>
+            <img src="RESUME.pdf.png" alt="RESUME" width="100" height="100">
+        </td>
+        <td>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a doloribus quae. Magni a ab error minus? Harum, iure non!
+        </td>
+    </tr>
+</table>
+<section>
+    <h2>EDUCTION</h2>
+    <ol>
+        <li>Bscit thakur collage </li>
+        <li>Nitingodiwala collage </li>
+        <li>st.Xavier high school</li>
+    </ol>
+    
+</section>
+<section>
+    <h2>Work Experience</h2>
+    <H4>Full stack developer, SMB solutions</H4>
+    Sep23-Feb-24
+    <ol>
+        <li>learned html/css/js(only validations)</li>
+        <li>learned postgresql/SqlServer</li>
+        <li>learned team work</li>
+    </ol>
+</section>
+<section>
+    <h2>Skills</h2>
+    <ul>
+        <li>java</li>
+        <li>Sqlserver</li>
+        <li>android studio/xml</li>
+        <li>postgresql</li>
+        <li>html/css/js</li>
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+<Section><h2>
+    Achievement
+</h2>
+<ol>
+    <li>took birth in this world</li>
+</ol>
+</Section>
+
+<section>
+    <h2>projects</h2>
+    <ul>
+        <li>Android local train ticketing application</li>
+        <li> bricker breaker game </li>
+        <li> flipaclip</li>
+    </ul>
+</section>
+<section>
+    <h2>Frequenty Asked question</h2>
+    <details>
+        <summary>what is your name</summary>
+        my name is vamshi 
+    </details>
+    <details>
+        <summary>how to i get started </summary>
+       get up and grind
+    </details>
+    <details>
+        <summary>how can i contact you </summary>
+     this is my mail ID- Vamshimyakala27@gmail.com
+    </details>
+
+
+</section><br><br>
+
+
+<footer>@2024 vamshi myakala</footer>
+</body>
+</html>
